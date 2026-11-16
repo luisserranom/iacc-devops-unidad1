@@ -1,0 +1,22 @@
+# Archivos locales de entorno y secretos. No publicar credenciales.
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+secrets/
+
+# Archivos temporales y registros
+*.log
+*.tmp
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+__pycache__/
+node_modules/
+
+# Evidencias locales que podrían contener datos de cuentas o equipos.
+evidencias-locales/
