@@ -1,0 +1,666 @@
+
+/* =========================================
+   1. VARIABLES GLOBALES
+========================================= */
+
+:root {
+    --ink: #18313b;
+    --deep: #0d3035;
+    --teal: #087b70;
+    --teal-dark: #066258;
+    --mist: #f1f8f7;
+    --muted: #596e75;
+    --line: #d9e7e4;
+    --white: #fff;
+    --accent: #b6f2df;
+    --radius: 18px;
+    --shadow: 0 16px 42px rgba(14, 62, 59, 0.09);
+}
+
+/* =========================================
+   2. ESTILOS GENERALES
+========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    color: var(--ink);
+    background: var(--white);
+    font: 16px/1.6 system-ui, -apple-system,
+          BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+a {
+    color: inherit;
+}
+
+a:focus-visible,
+button:focus-visible,
+select:focus-visible,
+input:focus-visible {
+    outline: 3px solid #f0b44d;
+    outline-offset: 3px;
+}
+
+.wrap {
+    max-width: 1120px;
+    margin: auto;
+    padding-inline: 24px;
+}
+
+/* =========================================
+   3. TIPOGRAFÍA
+========================================= */
+
+h1,
+h2,
+h3,
+p {
+    margin-top: 0;
+}
+
+h1 {
+    font-size: clamp(2.4rem, 5.1vw, 4.2rem);
+    line-height: 1.11;
+    letter-spacing: -0.047em;
+    margin: 22px 0;
+}
+
+h2 {
+    font-size: clamp(1.85rem, 3vw, 2.55rem);
+    line-height: 1.2;
+    letter-spacing: -0.033em;
+    margin: 12px 0 18px;
+}
+
+h3 {
+    font-size: 1.17rem;
+    line-height: 1.3;
+    margin-bottom: 10px;
+}
+
+.eyebrow {
+    display: inline-block;
+    color: var(--teal);
+    font-size: 0.74rem;
+    font-weight: 800;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+}
+
+/* =========================================
+   4. BANNER SUPERIOR
+========================================= */
+
+.demo-banner {
+    padding: 8px 16px;
+    background: #11383d;
+    color: #e5ffef;
+    text-align: center;
+    font-size: 0.72rem;
+    font-weight: 750;
+    letter-spacing: 0.12em;
+}
+
+/* =========================================
+   5. HEADER Y NAVEGACIÓN
+========================================= */
+
+.site-header {
+    border-bottom: 1px solid var(--line);
+    background: white;
+}
+
+.header-content,
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+}
+
+.header-content {
+    min-height: 85px;
+}
+
+/* Marca / Logo */
+
+.brand {
+    display: inline-flex;
+    gap: 12px;
+    align-items: center;
+    text-decoration: none;
+}
+
+.brand strong {
+    display: block;
+    font-size: 1.18rem;
+    line-height: 1.2;
+}
+
+.brand small {
+    display: block;
+    color: var(--muted);
+    font-size: 0.7rem;
+    letter-spacing: 0.09em;
+}
+
+.brand-icon {
+    display: grid;
+    place-items: center;
+    background: var(--teal);
+    color: white;
+    width: 42px;
+    height: 42px;
+    border-radius: 13px;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+/* Navegación */
+
+.site-header nav {
+    display: flex;
+    gap: 28px;
+}
+
+.site-header nav a {
+    text-decoration: none;
+    color: var(--muted);
+    font-size: 0.9rem;
+    font-weight: 650;
+}
+
+.site-header nav a:hover {
+    color: var(--teal);
+}
+
+/* =========================================
+   6. BOTONES
+========================================= */
+
+.button {
+    display: inline-flex;
+    gap: 12px;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 22px;
+    border: 0;
+    border-radius: 11px;
+    text-decoration: none;
+    font: inherit;
+    font-weight: 750;
+    cursor: pointer;
+}
+
+.button-primary {
+    background: var(--teal);
+    color: white;
+}
+
+.button-primary:hover {
+    background: var(--teal-dark);
+}
+
+.button-full {
+    width: 100%;
+}
+
+/* =========================================
+   7. HERO PRINCIPAL
+========================================= */
+
+.hero {
+    display: grid;
+    grid-template-columns: 1.18fr 0.82fr;
+    gap: 52px;
+    align-items: center;
+    padding-block: 78px;
+}
+
+.hero-copy p {
+    max-width: 550px;
+    color: var(--muted);
+    font-size: 1.04rem;
+    margin-bottom: 30px;
+}
+
+/* Panel del Hero */
+
+.hero-panel {
+    position: relative;
+    overflow: hidden;
+    min-height: 370px;
+    padding: 34px;
+    background: linear-gradient(145deg, #0a625f, #103d42);
+    color: white;
+    border-radius: 26px;
+    box-shadow: var(--shadow);
+}
+
+.hero-panel::after {
+    content: "";
+    position: absolute;
+    right: -90px;
+    top: -90px;
+    width: 250px;
+    height: 250px;
+    border: 50px solid rgba(255, 255, 255, 0.07);
+    border-radius: 50%;
+}
+
+.panel-kicker {
+    position: relative;
+    z-index: 1;
+    font-size: 0.76rem;
+    letter-spacing: 0.08em;
+    opacity: 0.82;
+}
+
+.panel-symbol {
+    font-size: 3.5rem;
+    color: var(--accent);
+    line-height: 1.6;
+}
+
+.hero-panel h2 {
+    max-width: 290px;
+    font-size: 1.65rem;
+}
+
+.hero-panel p {
+    font-size: 0.92rem;
+    opacity: 0.85;
+}
+
+/* Horarios del Panel */
+
+.panel-hour {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    margin-top: 16px;
+    padding-top: 14px;
+    font-size: 0.8rem;
+}
+
+.panel-hour span {
+    opacity: 0.72;
+}
+
+.panel-hour strong {
+    font-size: 0.8rem;
+    text-align: right;
+}
+
+/* =========================================
+   8. SECCIONES GENERALES
+========================================= */
+
+.section {
+    padding-block: 82px;
+}
+
+.pale {
+    background: var(--mist);
+}
+
+.section-heading {
+    max-width: 640px;
+    margin-bottom: 28px;
+}
+
+.section-heading p,
+.booking-copy > p,
+.status-grid p {
+    color: var(--muted);
+}
+
+/* =========================================
+   9. SECCIÓN DE SERVICIOS
+========================================= */
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.service-card {
+    background: white;
+    border: 1px solid var(--line);
+    padding: 27px;
+    border-radius: var(--radius);
+}
+
+.service-icon {
+    display: grid;
+    place-items: center;
+    width: 43px;
+    height: 43px;
+    border-radius: 12px;
+    background: #d9f2e9;
+    color: var(--teal);
+    font-size: 0.85rem;
+    font-weight: 800;
+    margin-bottom: 28px;
+}
+
+.service-card p {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-bottom: 0;
+}
+
+/* =========================================
+   10. SECCIÓN DE RESERVAS
+========================================= */
+
+.booking-grid {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 56px;
+    align-items: start;
+}
+
+.booking-copy p {
+    max-width: 390px;
+}
+
+/* Aviso Informativo */
+
+.notice {
+    background: #edf8f5;
+    border-left: 4px solid var(--teal);
+    border-radius: 9px;
+    padding: 16px 18px;
+    font-size: 0.86rem;
+    color: #28565a;
+    margin-top: 28px;
+}
+
+/* =========================================
+   11. FORMULARIO DE RESERVAS
+========================================= */
+
+.booking-form {
+    padding: 30px;
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+}
+
+/* Encabezado del Formulario */
+
+.form-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 23px;
+}
+
+.form-heading h3 {
+    margin: 0;
+}
+
+.form-tag {
+    background: #e2f6ed;
+    border-radius: 100px;
+    padding: 5px 10px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: #176653;
+}
+
+/* Campos del Formulario */
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    margin-bottom: 20px;
+}
+
+.field label {
+    font-size: 0.86rem;
+    font-weight: 700;
+}
+
+.field select,
+.field input {
+    width: 100%;
+    min-height: 48px;
+    border: 1px solid #cedcd9;
+    background: #fff;
+    border-radius: 10px;
+    color: var(--ink);
+    font: inherit;
+    font-size: 0.88rem;
+    padding: 9px 12px;
+}
+
+/* Filas del Formulario */
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+/* Resultados del Formulario */
+
+.form-result {
+    margin: 16px 0 0;
+    padding: 11px 13px;
+    border-radius: 8px;
+    background: #f6f9f8;
+    color: var(--muted);
+    font-size: 0.83rem;
+}
+
+.form-result.success {
+    background: #e0f5ed;
+    color: #135b46;
+}
+
+.form-result.error {
+    background: #fff4e5;
+    color: #79511a;
+}
+
+/* =========================================
+   12. SECCIÓN DE ESTADO
+========================================= */
+
+.status-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 54px;
+}
+
+/* Tarjeta de Estado */
+
+.status-card {
+    padding: 28px;
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+}
+
+.status-line {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.status-dot {
+    width: 11px;
+    height: 11px;
+    flex: none;
+    border-radius: 50%;
+    background: #14a076;
+    box-shadow: 0 0 0 5px #e3f8ed;
+}
+
+.status-card p {
+    font-size: 0.9rem;
+    margin: 15px 0 20px;
+}
+
+.status-card code {
+    white-space: nowrap;
+}
+
+.status-foot {
+    display: block;
+    border-top: 1px solid var(--line);
+    padding-top: 15px;
+    font-size: 0.74rem;
+    color: var(--muted);
+}
+
+/* =========================================
+   13. FOOTER
+========================================= */
+
+.site-footer {
+    background: var(--deep);
+    color: #dfefed;
+}
+
+.footer-content {
+    min-height: 83px;
+    font-size: 0.8rem;
+    opacity: 0.88;
+}
+
+/* =========================================
+   14. RESPONSIVE - TABLET
+   Pantallas de 850px o menos
+========================================= */
+
+@media (max-width: 850px) {
+
+    /* Hero, Reservas y Estado */
+
+    .hero,
+    .booking-grid,
+    .status-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        padding-block: 54px;
+        gap: 32px;
+    }
+
+    .hero-panel {
+        min-height: auto;
+    }
+
+    /* Reservas */
+
+    .booking-grid {
+        gap: 24px;
+    }
+
+    /* Servicios */
+
+    .service-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Secciones */
+
+    .section {
+        padding-block: 54px;
+    }
+}
+
+/* =========================================
+   15. RESPONSIVE - MÓVIL
+   Pantallas de 560px o menos
+========================================= */
+
+@media (max-width: 560px) {
+
+    /* Contenedor General */
+
+    .wrap {
+        padding-inline: 18px;
+    }
+
+    /* Header */
+
+    .header-content {
+        min-height: 74px;
+        flex-wrap: wrap;
+        padding-block: 12px;
+    }
+
+    .site-header nav {
+        gap: 17px;
+    }
+
+    .site-header nav a {
+        font-size: 0.8rem;
+    }
+
+    /* Hero */
+
+    .hero {
+        padding-block: 42px;
+    }
+
+    .hero-panel {
+        padding: 25px;
+    }
+
+    /* Horarios */
+
+    .panel-hour {
+        flex-direction: column;
+        gap: 2px;
+    }
+
+    .panel-hour strong {
+        text-align: left;
+    }
+
+    /* Formulario */
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .booking-form {
+        padding: 21px;
+    }
+
+    /* Footer */
+
+    .footer-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2px;
+        padding-block: 19px;
+    }
+
+    /* Banner Superior */
+
+    .demo-banner {
+        font-size: 0.6rem;
+    }
+}

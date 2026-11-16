@@ -1,0 +1,14 @@
+# Evita enviar contenido ajeno al sitio al contexto de Docker.
+.git
+.github
+.env
+.env.*
+!.env.example
+*.log
+*.pem
+*.key
+secrets
+node_modules
+.vscode
+.idea
+evidencias-locales

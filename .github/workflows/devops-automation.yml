@@ -1,0 +1,46 @@
+name: Validacion DevOps academica
+
+on:
+  push:
+    branches: [main, "feature/**"]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validar-web:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Obtener codigo
+        uses: actions/checkout@v4
+      - name: Comprobar archivos obligatorios
+        run: |
+          test -s src/index.html
+          test -s src/styles.css
+          test -s Dockerfile
+          test -s docker-compose.yml
+          test -s .gitignore
+          test -s .env.example
+          test -s README.md
+          grep -q 'FROM nginx:alpine' Dockerfile
+      - name: Validar Docker Compose
+        run: docker compose config --quiet
+      - name: Construir imagen Docker
+        run: docker build -t iacc-reservas-medicas:ci .
+      - name: Ejecutar y verificar servidor web local
+        run: |
+          docker run -d --name iacc-web-ci -p 127.0.0.1:18080:80 iacc-reservas-medicas:ci
+          for i in 1 2 3 4 5 6 7 8; do
+            if curl -fsS http://127.0.0.1:18080/ -o pagina.html; then break; fi
+            sleep 2
+          done
+          test -s pagina.html
+          grep -q 'Simula una reserva de hora' pagina.html
+      - name: Consultar logs
+        if: always()
+        run: docker logs iacc-web-ci || true
+      - name: Limpiar contenedor de CI
+        if: always()
+        run: docker rm -f iacc-web-ci || true
