@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Demostración académica de un servicio estático de reserva de horas médicas con Docker y Nginx.">
+  <meta name="referrer" content="no-referrer">
+  <title>SaludNova Demo | Reserva de horas médicas</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <div class="demo-banner" role="note">PROYECTO ACADÉMICO · IACC DEVOPS · SIN RESERVAS REALES NI DATOS DE PACIENTES</div>
+  <header class="site-header">
+    <div class="wrap header-content">
+      <a class="brand" href="#inicio" aria-label="SaludNova Demo, ir al inicio">
+        <span class="brand-icon" aria-hidden="true">+</span>
+        <span><strong>SaludNova</strong><small>centro de salud · demo</small></span>
+      </a>
+      <nav aria-label="Secciones principales"><a href="#servicios">Servicios</a><a href="#reservar">Simulación</a><a href="#estado">Estado</a></nav>
+    </div>
+  </header>
+  <main id="inicio">
+    <section class="hero wrap" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <span class="eyebrow">Atención cercana · Entorno de demostración</span>
+        <h1 id="hero-title">Tu salud merece un espacio para planificar.</h1>
+        <p>Explora una interfaz de reserva de horas médicas construida como sitio estático y ejecutada con Nginx en un contenedor Docker.</p>
+        <a class="button button-primary" href="#reservar">Ver formulario de reserva <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="hero-panel" aria-label="Información general de atención">
+        <span class="panel-kicker">Información de atención · ilustrativa</span>
+        <div class="panel-symbol" aria-hidden="true">✚</div>
+        <h2>Atención planificada para ti</h2>
+        <p>Medicina general, pediatría y controles preventivos.</p>
+        <div class="panel-hour"><span>Horario referencial</span><strong>Lun–Vie · 08:30 a 18:00</strong></div>
+        <div class="panel-hour"><span>Modalidad</span><strong>Presencial · demostración</strong></div>
+      </div>
+    </section>
+    <section id="servicios" class="section pale" aria-labelledby="services-title">
+      <div class="wrap">
+        <div class="section-heading"><span class="eyebrow">Servicios de ejemplo</span><h2 id="services-title">Áreas de atención</h2><p>Las especialidades y horarios son ilustrativos y no representan prestaciones disponibles.</p></div>
+        <div class="service-grid">
+          <article class="service-card"><span class="service-icon" aria-hidden="true">01</span><h3>Medicina general</h3><p>Consultas generales y orientación preventiva.</p></article>
+          <article class="service-card"><span class="service-icon" aria-hidden="true">02</span><h3>Pediatría</h3><p>Seguimiento y controles de salud infantil.</p></article>
+          <article class="service-card"><span class="service-icon" aria-hidden="true">03</span><h3>Control preventivo</h3><p>Evaluación y promoción del autocuidado.</p></article>
+        </div>
+      </div>
+    </section>
+    <section id="reservar" class="section" aria-labelledby="booking-title">
+      <div class="wrap booking-grid">
+        <div class="booking-copy">
+          <span class="eyebrow">Formulario académico</span>
+          <h2 id="booking-title">Simula una reserva de hora</h2>
+          <p>Selecciona una especialidad, una fecha y un bloque de atención. El formulario funciona únicamente en tu navegador.</p>
+          <div class="notice"><strong>Privacidad primero.</strong> No ingreses nombres, RUT, teléfonos ni datos de pacientes. No existe base de datos, API ni envío de información a servicios externos.</div>
+        </div>
+        <form id="booking-form" class="booking-form" novalidate>
+          <div class="form-heading"><h3>Datos de la atención</h3><span class="form-tag">Solo simulación</span></div>
+          <div class="field"><label for="especialidad">Especialidad</label><select id="especialidad" name="especialidad" required><option value="">Selecciona una especialidad</option><option>Medicina general</option><option>Pediatría</option><option>Control preventivo</option></select></div>
+          <div class="form-row"><div class="field"><label for="fecha">Fecha de atención</label><input id="fecha" name="fecha" type="date" required></div><div class="field"><label for="bloque">Bloque horario</label><select id="bloque" name="bloque" required><option value="">Selecciona un bloque</option><option>08:30 a 10:30</option><option>10:30 a 12:30</option><option>14:00 a 16:00</option><option>16:00 a 18:00</option></select></div></div>
+          <button type="submit" class="button button-primary button-full">Simular reserva <span aria-hidden="true">→</span></button>
+          <p id="form-result" class="form-result" role="status" aria-live="polite">Esta demostración no registra ni confirma horas médicas reales.</p>
+        </form>
+      </div>
+    </section>
+    <section id="estado" class="section pale" aria-labelledby="status-title">
+      <div class="wrap status-grid">
+        <div><span class="eyebrow">Estado de la demostración</span><h2 id="status-title">Servicio web de práctica</h2><p>La página está diseñada para publicarse localmente desde un contenedor Nginx, sin conectarse a servicios de salud reales.</p></div>
+        <div class="status-card"><div class="status-line"><span class="status-dot" aria-hidden="true"></span><strong>Interfaz local de demostración</strong></div><p>Sin backend ni base de datos. La disponibilidad real se verifica al ejecutar Docker y acceder a <code>http://localhost:8080</code>.</p><span class="status-foot">Proyecto académico · sin información clínica</span></div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="wrap footer-content"><span>© 2026 SaludNova Demo · Ejercicio académico IACC</span><span>No ofrece atención médica real</span></div></footer>
+</body>
+</html>

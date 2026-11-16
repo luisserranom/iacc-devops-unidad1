@@ -1,0 +1,13 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: iacc-reservas-medicas:1.0
+    container_name: iacc-reservas-medicas
+  
+    ports:
+      - "127.0.0.1:${HOST_PORT:-8080}:80"
+    restart: "no"
+    security_opt:
+      - no-new-privileges:true
